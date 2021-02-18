@@ -1,11 +1,14 @@
+const path = require('path');
+
 module.exports = {
-  devServer: {
-	  proxy: {
-		  '/api':{
+	outputDir: path.resolve(__dirname, "../main/resources/static"),
+	devServer: {
+		proxy: {
+			'/api':{
 			  target: 'http://localhost:8090',
-			  wd: true,
+			  ws: true,
 			  changeOrigin: true
-		  },
-	  }
-  }
+			},
+		}
+	}
 }
