@@ -1,20 +1,20 @@
 <template>
   <div id="app">
     <Navigation></Navigation>
-    <router-view />
+    <router-view/>
     <!-- 3. 이 부분에서 어떤 것이 마운트 되는지 알아보려면 router/index.js 를 가보면 된다. -->
   </div>
 </template>
 
 <script>
 // 2. main.js 파일을 실행하면 제일 먼저 마운트 돠는 속성이다.
-import Navigation from "./components/Navigation";
+import Navigation from "@/components/Navigation"
 export default {
   name: "App",
   components: {
-    Navigation: Navigation,
-  },
-};
+    Navigation: Navigation
+  }
+}
 </script>
 
 
