@@ -8,7 +8,7 @@
 
 <script>
 // 2. main.js 파일을 실행하면 제일 먼저 마운트 돠는 속성이다.
-import Navigation from "@/components/Navigation"
+import Navigation from "./components/Navigation"
 export default {
   name: "App",
   components: {
