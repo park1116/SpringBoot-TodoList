@@ -9,23 +9,20 @@
   </head>
   <body>
     <div id="app">
-      {{ year }}<br>
-      <button v-on:click="plus">더하기</button>
-      <button v-on:click="minus">빼기</button>
+        <!-- <input type="text" :value="text" @keyup="updateText"><br> -->
+        <input type="text" v-model="text"><br>
+        {{ text }}<br>
     </div>
     <script>
       new Vue({
         el: '#app',
         data: {
-          year : 2018
+          text: 'text'
         },
         methods: {
-          plus(){
-            return this.year++;
-          },
-          minus(){
-            return this.year--;
-          }
+          // updateText(event){
+          //   this.text = event.target.value;
+          // }
         }
       })
     </script>
