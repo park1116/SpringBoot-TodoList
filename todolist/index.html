@@ -9,7 +9,8 @@
   </head>
   <body>
     <div id="app">
-      {{ nextYear('안녕') }}
+      {{ nextYear('안녕하세요') }}
+      <input type="text" v-bind:value="inputData">
     </div>
     <script>
       new Vue({
@@ -18,11 +19,12 @@
           person: {
             name: 'park',
             age: 27
-          }
+          },
+          inputData: 'hello~'
         },
         methods: {
           nextYear: function(arg){
-            return arg + '!  ' + this.person.name + '은 내년에 ' + (this.person.age + 1) + '살 입니다.';
+            return arg + '!  ' + this.person.name + '은 내년에' + (this.person.age + 1) + '살 입니다.';
           }
         }
       })
