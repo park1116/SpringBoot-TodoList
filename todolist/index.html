@@ -9,28 +9,22 @@
   </head>
   <body>
     <div id="app">
-      {{ nextYear('안녕하세요') }}
-      <input :type="type" :value="inputData">
-      <a :href="getGithub('park1116/Vue-TodoList')">park1116의 github</a>
+      {{ year }}<br>
+      <button v-on:click="plus">더하기</button>
+      <button v-on:click="minus">빼기</button>
     </div>
     <script>
       new Vue({
         el: '#app',
         data: {
-          person: {
-            name: 'park',
-            age: 27
-          },
-          inputData: 'hello~',
-          type: 'number',
-          link: 'https://github.com/'
+          year : 2018
         },
         methods: {
-          getGithub: function(userRepository){
-            return this.link + userRepository;
+          plus(){
+            return this.year++;
           },
-          nextYear: function(arg){
-            return arg + '!  ' + this.person.name + '은 내년에' + (this.person.age + 1) + '살 입니다.';
+          minus(){
+            return this.year--;
           }
         }
       })
