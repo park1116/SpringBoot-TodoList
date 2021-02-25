@@ -10,7 +10,8 @@
   <body>
     <div id="app">
       {{ nextYear('안녕하세요') }}
-      <input type="text" v-bind:value="inputData">
+      <input :type="type" :value="inputData">
+      <a :href="getGithub('park1116/Vue-TodoList')">park1116의 github</a>
     </div>
     <script>
       new Vue({
@@ -20,9 +21,14 @@
             name: 'park',
             age: 27
           },
-          inputData: 'hello~'
+          inputData: 'hello~',
+          type: 'number',
+          link: 'https://github.com/'
         },
         methods: {
+          getGithub: function(userRepository){
+            return this.link + userRepository;
+          },
           nextYear: function(arg){
             return arg + '!  ' + this.person.name + '은 내년에' + (this.person.age + 1) + '살 입니다.';
           }
