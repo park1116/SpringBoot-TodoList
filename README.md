@@ -1,5 +1,4 @@
 # **Vue-TodoList**
----
 ## Project Period
 2021.02.17 ~
 ## Development Environment
