@@ -3,7 +3,40 @@
     <table>
       <tr>
         <td>
-          <January to="/jan">January</January>
+          <Month to=1>January</Month>
+        </td>
+        <td>
+          <Month to=2>January</Month>
+        </td>
+        <td>
+          <Month to=3>January</Month>
+        </td>
+        <td>
+          <Month to=4>January</Month>
+        </td>
+        <td>
+          <Month to=5>January</Month>
+        </td>
+        <td>
+          <Month to=6>January</Month>
+        </td>
+        <td>
+          <Month to=7>January</Month>
+        </td>
+        <td>
+          <Month to=8>January</Month>
+        </td>
+        <td>
+          <Month to=9>January</Month>
+        </td>
+        <td>
+          <Month to=10>January</Month>
+        </td>
+        <td>
+          <Month to=11>January</Month>
+        </td>
+        <td>
+          <Month to=12>January</Month>
         </td>
         <!-- <td>
           <Febrary to="/feb">Febrary</Febrary>
@@ -48,7 +81,7 @@
 </template>
 
 <script>
-import January from "@/components/January.vue";
+import Month from "@/components/Month.vue";
 // import Febrary from "@/components/Febrary.vue";
 // import March from "@/components/March.vue";
 // import April from "@/components/April.vue";
@@ -63,7 +96,7 @@ import January from "@/components/January.vue";
 
 export default {
   components: {
-    January,
+    Month,
     // Febrary,
     // March,
     // April,
