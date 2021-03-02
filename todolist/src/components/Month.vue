@@ -1,14 +1,14 @@
 <template>
   <div>
-    <a href="/">{{ to }}</a>
+    <a href="http://localhost:8090/?test=psh">{{ to }}</a>
   </div>
 </template>
 
 <script>
 export default {
-  name: "January",
+  name: "Month",
   props: {
-    to: String,
+    to: Number,
   },
 };
 </script>
