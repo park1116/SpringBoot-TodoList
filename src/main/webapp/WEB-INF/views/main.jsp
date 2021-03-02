@@ -10,5 +10,6 @@
 <h1>
 Hello World~~!
 </h1>
+<h6><%= request.getAttribute("month") %></h6>
 </body>
 </html>
