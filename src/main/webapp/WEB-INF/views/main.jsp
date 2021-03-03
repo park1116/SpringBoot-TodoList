@@ -8,8 +8,8 @@
 </head>
 <body>
 <h1>
-Hello World~~!
+Main Page
 </h1>
-<h6><%= request.getAttribute("month") %></h6>
+<h6>Vue에서 받은 데이터 : <%= request.getAttribute("month") %></h6>
 </body>
 </html>

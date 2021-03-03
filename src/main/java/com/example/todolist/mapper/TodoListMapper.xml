@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.todolist.mapper.TodoListMapper">
+
+<sql id="todolistColumns">
+	num,
+	month,
+	content,
+	status
+</sql>
+
+<select id="selectAll" resultType="com.example.todolist.dto.TodoListDto">
+	SELECT 
+		<include refid="todolistColumns"/>
+	FROM 
+		TODOLIST
+	ORDER BY
+		num desc
+	WHERE
+		status="to do"
+</select>
+
+<insert id="insertData" parameterType="com.example.todolist.dto.TodoListDto">
+	INSERT INTO TODOLIST (
+		<include refid="todolistColumns"/>
+	) VALUES (
+		(SELECT
+			ifnull(MAX(num)+1, 1)
+		FROM
+			TODOLIST)
+		,#{month}
+		,#{content}
+		,#{status}
+		,now()
+	)	
+</insert>
+
+<delete id="deleteData" parameterType="int">
+	DELETE
+	FROM
+		BOARD
+	WHERE
+		num=#{num}
+</delete>
+</mapper>
