@@ -3,78 +3,45 @@
     <table>
       <tr>
         <td>
-          <Month to=1>January</Month>
+          <Month name="January" num=1></Month>
         </td>
         <td>
-          <Month to=2>January</Month>
+          <Month name="Febrary" num=2></Month>
         </td>
         <td>
-          <Month to=3>January</Month>
+          <Month name="March" num=3></Month>
         </td>
         <td>
-          <Month to=4>January</Month>
-        </td>
-        <td>
-          <Month to=5>January</Month>
-        </td>
-        <td>
-          <Month to=6>January</Month>
-        </td>
-        <td>
-          <Month to=7>January</Month>
-        </td>
-        <td>
-          <Month to=8>January</Month>
-        </td>
-        <td>
-          <Month to=9>January</Month>
-        </td>
-        <td>
-          <Month to=10>January</Month>
-        </td>
-        <td>
-          <Month to=11>January</Month>
-        </td>
-        <td>
-          <Month to=12>January</Month>
-        </td>
-        <!-- <td>
-          <Febrary to="/feb">Febrary</Febrary>
-        </td>
-        <td>
-          <March to="/mar">March</March>
-        </td>
-        <td>
-          <April to="/apr">April</April>
+          <Month name="April" num=4></Month>
         </td>
       </tr>
       <tr>
         <td>
-          <May to="/may">May</May>
+          <Month name="May" num=5></Month>
         </td>
         <td>
-          <June to="/jun">June</June>
+          <Month name="June" num=6></Month>
         </td>
         <td>
-          <July to="/jul">July</July>
+          <Month name="July" num=7></Month>
         </td>
         <td>
-          <August to="/aug">August</August>
+          <Month name="August" num=8></Month>
         </td>
       </tr>
       <tr>
         <td>
-          <September to="/sep">September</September>
+          <Month name="September" num=9></Month>
         </td>
         <td>
-          <October to="/oct">October</October>
+          <Month name="October" num=10></Month>
         </td>
         <td>
-          <November to="/nov">November</November>
+          <Month name="November" num=11></Month>
         </td>
         <td>
-          <December to="/dec">December</December>
-        </td> -->
+          <Month name="December" num=12></Month>
+        </td>
       </tr>
     </table>
   </div>
@@ -82,32 +49,10 @@
 
 <script>
 import Month from "@/components/Month.vue";
-// import Febrary from "@/components/Febrary.vue";
-// import March from "@/components/March.vue";
-// import April from "@/components/April.vue";
-// import May from "@/components/May.vue";
-// import June from "@/components/June.vue";
-// import July from "@/components/July.vue";
-// import August from "@/components/August.vue";
-// import September from "@/components/September.vue";
-// import October from "@/components/October.vue";
-// import November from "@/components/November.vue";
-// import December from "@/components/December.vue";
 
 export default {
   components: {
-    Month,
-    // Febrary,
-    // March,
-    // April,
-    // May,
-    // June,
-    // July,
-    // August,
-    // September,
-    // October,
-    // November,
-    // December,
+    Month
   },
 }
 </script>

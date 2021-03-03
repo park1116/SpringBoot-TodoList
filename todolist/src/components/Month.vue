@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a href="http://localhost:8090/?test=psh">{{ to }}</a>
+    <a :href="link">{{ name }}</a>
   </div>
 </template>
 
@@ -8,7 +8,13 @@
 export default {
   name: "Month",
   props: {
-    to: Number,
+    name: String,
+    num: Number,
   },
+  data() {
+    return{
+      link: "http://127.0.0.1:8090/"+this.num
+    };
+  }
 };
 </script>
