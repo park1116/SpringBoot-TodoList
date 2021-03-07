@@ -9,15 +9,13 @@
 	status
 </sql>
 
-<select id="selectAll" resultType="com.example.todolist.dto.TodoListDto">
-	SELECT 
+<select id="selectAll" parameterType="int" resultType="com.example.todolist.dto.TodoListDto">
+	SELECT 	
 		<include refid="todolistColumns"/>
 	FROM 
 		TODOLIST
-	ORDER BY
-		num desc
 	WHERE
-		status="to do"
+		month=#{month}
 </select>
 
 <insert id="insertData" parameterType="com.example.todolist.dto.TodoListDto">
@@ -31,7 +29,6 @@
 		,#{month}
 		,#{content}
 		,#{status}
-		,now()
 	)	
 </insert>
 

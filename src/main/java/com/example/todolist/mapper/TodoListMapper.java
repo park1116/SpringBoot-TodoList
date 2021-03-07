@@ -6,7 +6,7 @@ import com.example.todolist.dto.TodoListDto;
 
 @Repository("com.example.todolist.mapper.TodoListMapper")
 public interface TodoListMapper {
-	public List<TodoListDto> selectAll();
+	public List<TodoListDto> selectAll(int month);
 	
 	public int insertData(TodoListDto dto);
 	

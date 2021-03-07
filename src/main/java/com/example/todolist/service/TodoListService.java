@@ -11,8 +11,8 @@ public class TodoListService {
 	@Resource(name="com.example.todolist.mapper.TodoListMapper")
 	TodoListMapper mapper;
 
-	public List<TodoListDto> selectAll() {
-		return mapper.selectAll();
+	public List<TodoListDto> selectAll(int month) {
+		return mapper.selectAll(month);
 	}
 	
 	public int insertData(TodoListDto dto) {
