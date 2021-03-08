@@ -11,5 +11,6 @@
 Main Page
 </h1>
 <h6>Vue에서 받은 데이터 : <%= request.getAttribute("month") %></h6>
+<h3>Vue에서 받은 데이터 : <%= request.getAttribute("list") %></h3>
 </body>
 </html>
