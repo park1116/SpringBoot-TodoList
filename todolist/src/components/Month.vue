@@ -1,7 +1,6 @@
 <template>
   <div>
     <button @click="sendMonth()">{{ name }}</button>
-    <p>{{ todolist }}</p>
   </div>
 </template>
 
@@ -25,6 +24,7 @@ export default {
       .then(res => {
         console.log(res)
         this.todolist = res.data
+        this.$emit('monthTodoList', this.todolist)
       })
       .catch(error => {
           console.log(error)
