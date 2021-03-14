@@ -11,7 +11,7 @@ export default {
   name: "Month",
   props: {
     name: String,
-    num: Number,
+    month: Number,
   },
   data() {
     return{
@@ -20,11 +20,12 @@ export default {
   },
   methods:{
     sendMonth(){
-      axios.get('/data/'+this.num)
+      axios.get('/data/'+this.month)
       .then(res => {
         console.log(res)
         this.todolist = res.data
         this.$emit('monthTodoList', this.todolist)
+        this.$emit('month', this.month)
       })
       .catch(error => {
           console.log(error)
