@@ -44,7 +44,20 @@
         </td>
       </tr>
     </table>
-    <p>{{ todolist }}</p>
+    <table class="text-center" v-if="todolist.length >= 1">
+      <tr>
+        <th>num</th>
+        <th>month</th>
+        <th>content</th>
+        <th>status</th>
+      </tr>
+      <tr v-for="list in todolist" v-bind:key="list.num">
+        <td>{{ list.num }}</td>
+        <td>{{ list.month }}</td>
+        <td>{{ list.content }}</td>
+        <td>{{ list.status }}</td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -68,7 +81,8 @@ export default {
 
 <style>
 tr,
-td {
+td,
+th {
   border: 1px solid #000000;
   padding: 10px;
 }
