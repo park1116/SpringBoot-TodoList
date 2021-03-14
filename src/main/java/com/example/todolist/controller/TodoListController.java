@@ -19,9 +19,16 @@ public class TodoListController {
 	TodoListService service;
 	
 	@RequestMapping(value = "/data/{month}")
-	public List<TodoListDto> Month(@PathVariable("month")int month, ModelAndView mav) {
+	public List<TodoListDto> month(@PathVariable("month")int month) {
 		System.out.println(month);
 		List<TodoListDto> list = service.selectAll(month);
 		return list;
+	}
+	
+	@RequestMapping(value = "/delete/{num}")
+	public int delete(@PathVariable("num")int num) {
+		System.out.println(num);
+		int check = service.deleteData(num);
+		return check;
 	}
 }
