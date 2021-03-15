@@ -25,10 +25,11 @@ public class TodoListController {
 		return list;
 	}
 	
-	@RequestMapping(value = "/delete/{num}")
-	public int delete(@PathVariable("num")int num) {
+	@RequestMapping(value = "/delete/{num}/{month}")
+	public List<TodoListDto> delete(@PathVariable("num")int num, @PathVariable("month")int month) {
 		System.out.println(num);
-		int check = service.deleteData(num);
-		return check;
+		service.deleteData(num);
+		List<TodoListDto> list = service.selectAll(month);
+		return list;
 	}
 }
