@@ -61,7 +61,7 @@
           <button @click="insert(list.month)">insert</button>
         </td>
         <td>
-          <button @click="deleteNum(list.num)">delete</button>
+          <button @click="deleteNum(list.num, list.month)">delete</button>
         </td>
       </tr>
     </table>
@@ -87,10 +87,11 @@ export default {
     insert(month){
       this.$router.push({path:'./insert/'+month, month:month})
     },
-    deleteNum(num){
+    deleteNum(num, month){
       console.log(num)
-      axios.get('/delete/'+num)
+      axios.get('/delete/'+num+'/'+month)
       .then(res => {
+        this.todolist = res.data
         console.log(res)
       })
       .catch(error => {
