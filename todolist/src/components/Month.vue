@@ -25,7 +25,7 @@ export default {
         console.log(res)
         this.todolist = res.data
         this.$emit('monthTodoList', this.todolist)
-        this.$emit('month', this.month)
+        this.$emit('nowMonth', this.month)
       })
       .catch(error => {
           console.log(error)

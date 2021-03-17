@@ -3,44 +3,44 @@
     <table>
       <tr>
         <td>
-          <Month name="January" v-bind:month='1' @monthTodoList="monthList"></Month>
+          <Month name="January" v-bind:month='1' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
         </td>
         <td>
-          <Month name="Febrary" v-bind:month='2' @monthTodoList="monthList"></Month>
+          <Month name="Febrary" v-bind:month='2' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
         </td>
         <td>
-          <Month name="March" v-bind:month='3' @monthTodoList="monthList"></Month>
+          <Month name="March" v-bind:month='3' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
         </td>
         <td>
-          <Month name="April" v-bind:month='4' @monthTodoList="monthList"></Month>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <Month name="May" v-bind:month='5' @monthTodoList="monthList"></Month>
-        </td>
-        <td>
-          <Month name="June" v-bind:month='6' @monthTodoList="monthList"></Month>
-        </td>
-        <td>
-          <Month name="July" v-bind:month='7' @monthTodoList="monthList"></Month>
-        </td>
-        <td>
-          <Month name="August" v-bind:month='8' @monthTodoList="monthList"></Month>
+          <Month name="April" v-bind:month='4' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
         </td>
       </tr>
       <tr>
         <td>
-          <Month name="September" v-bind:month='9' @monthTodoList="monthList"></Month>
+          <Month name="May" v-bind:month='5' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
         </td>
         <td>
-          <Month name="October" v-bind:month='10' @monthTodoList="monthList"></Month>
+          <Month name="June" v-bind:month='6' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
         </td>
         <td>
-          <Month name="November" v-bind:month='11' @monthTodoList="monthList"></Month>
+          <Month name="July" v-bind:month='7' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
         </td>
         <td>
-          <Month name="December" v-bind:month='12' @monthTodoList="monthList"></Month>
+          <Month name="August" v-bind:month='8' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <Month name="September" v-bind:month='9' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
+        </td>
+        <td>
+          <Month name="October" v-bind:month='10' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
+        </td>
+        <td>
+          <Month name="November" v-bind:month='11' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
+        </td>
+        <td>
+          <Month name="December" v-bind:month='12' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
         </td>
       </tr>
     </table>
@@ -50,7 +50,7 @@
         <th>month</th>
         <th>content</th>
         <th>status</th>
-        <th colspan="2">modify</th>
+        <th>delete</th>
       </tr>
       <tr v-for="list in todolist" v-bind:key="list.num">
         <td>{{ list.num }}</td>
@@ -58,12 +58,10 @@
         <td>{{ list.content }}</td>
         <td>{{ list.status }}</td>
         <td>
-          <button @click="insert(list.month)">insert</button>
-        </td>
-        <td>
           <button @click="deleteNum(list.num, list.month)">delete</button>
         </td>
       </tr>
+    <button @click="insert()">insert {{ month }}</button>
     </table>
   </div>
 </template>
@@ -75,17 +73,23 @@ import axios from 'axios';
 export default {
   data: () => ({
     todolist: [],
+    month: Number,
     num: Number
   }),
   components: {
     Month
   },
   methods: {
+    nowMonth(nowmonth) {
+      console.log(nowmonth)
+      this.month = nowmonth
+    },
     monthList(monthlist) {
+      console.log(monthlist)
       this.todolist = monthlist
     },
-    insert(month){
-      this.$router.push({path:'./insert/'+month, month:month})
+    insert(){
+      // this.$router.push({path:'../components/InsertMonth.vue', month:this.month})
     },
     deleteNum(num, month){
       console.log(num)
