@@ -22,10 +22,12 @@
 	INSERT INTO TODOLIST (
 		<include refid="todolistColumns"/>
 	) VALUES (
-		(SELECT
-			ifnull(MAX(num)+1, 1)
-		FROM
-			TODOLIST)
+		(SELECT * FROM(
+			SELECT
+				ifnull(MAX(num)+1, 1)
+			FROM
+				TODOLIST as t)
+		as tt)
 		,#{month}
 		,#{content}
 		,#{status}
