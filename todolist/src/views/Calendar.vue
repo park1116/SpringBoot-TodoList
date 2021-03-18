@@ -58,14 +58,14 @@
         <td>{{ list.content }}</td>
         <td>{{ list.status }}</td>
         <td>
-          <button @click="update(list.num, list.status)">next</button>
+          <button @click="update(list.num, list.month, list.status)">update status</button>
         </td>
         <td>
           <button @click="deleteNum(list.num, list.month)">delete</button>
         </td>
       </tr>
-    <button @click="insert()">insert {{ month }}</button>
     </table>
+    <button @click="insert()" v-if="this.month >= 1">insert</button>
   </div>
 </template>
 
@@ -92,8 +92,8 @@ export default {
     insert(){
       this.$router.push({path:'/insert/'+this.month})
     },
-    update(num, status){
-      axios.get('/update/'+num+'/'+status)
+    update(num, month, status){
+      axios.get('/update/'+num+'/'+month+'/'+status)
       .then(res => {
         this.todolist = res.data
       })
