@@ -2,43 +2,57 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.todolist.mapper.TodoListMapper">
 
-<sql id="todolistColumns">
-	num,
-	month,
-	content,
-	status
-</sql>
+	<sql id="todolistColumns">
+		num,
+		month,
+		content,
+		status
+	</sql>
 
-<select id="selectAll" parameterType="int" resultType="com.example.todolist.dto.TodoListDto">
-	SELECT 	
-		<include refid="todolistColumns"/>
-	FROM 
+	<select id="selectAll" parameterType="int"
+		resultType="com.example.todolist.dto.TodoListDto">
+		SELECT
+		<include refid="todolistColumns" />
+		FROM
 		TODOLIST
-	WHERE
+		WHERE
 		month=#{month}
-</select>
+	</select>
 
-<insert id="insertData" parameterType="com.example.todolist.dto.TodoListDto">
-	INSERT INTO TODOLIST (
-		<include refid="todolistColumns"/>
-	) VALUES (
+	<insert id="insertData"
+		parameterType="com.example.todolist.dto.TodoListDto">
+		INSERT INTO TODOLIST (
+		<include refid="todolistColumns" />
+		) VALUES (
 		(SELECT * FROM(
 			SELECT
-				ifnull(MAX(num)+1, 1)
+			ifnull(MAX(num)+1, 1)
 			FROM
-				TODOLIST as t)
+			TODOLIST as t)
 		as tt)
 		,#{month}
 		,#{content}
 		,#{status}
-	)	
-</insert>
+		)
+	</insert>
 
-<delete id="deleteData" parameterType="int">
-	DELETE
-	FROM
+	<delete id="deleteData" parameterType="int">
+		DELETE
+		FROM
 		TODOLIST
-	WHERE
+		WHERE
 		num=#{num}
-</delete>
+	</delete>
+
+	<update id="updateDoing" parameterType="int">
+		UPDATE TODOLIST
+		SET status = "doing"
+		WHERE num=#{num}
+	</update>
+
+	<update id="updateDone" parameterType="int">
+		UPDATE TODOLIST
+		SET status = "done"
+		WHERE num=#{num}
+	</update>
 </mapper>

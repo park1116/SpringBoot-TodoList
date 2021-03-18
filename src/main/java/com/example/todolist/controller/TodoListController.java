@@ -36,12 +36,26 @@ public class TodoListController {
 	
 	@RequestMapping(value = "/insertMonth/{month}/{content}")
 	public List<TodoListDto> insert(@PathVariable("month")int month, @PathVariable("content")String content) {
-		System.out.println(month+"///"+content);
+		System.out.println(month+"  :  "+content);
 		TodoListDto dto = new TodoListDto();
 		dto.setMonth(month);
 		dto.setContent(content);
 		dto.setStatus("to do");
 		service.insertData(dto);
+		List<TodoListDto> list = service.selectAll(month);
+		return list;
+	}
+	
+	@RequestMapping(value = "/update/{num}/{month}/{status}")
+	public List<TodoListDto> update(@PathVariable("num")int num, @PathVariable("month")int month, @PathVariable("status")String status) {
+		System.out.println(num+"  :  "+status);
+		if("to do".equals(status)) {
+			service.updateDoing(num);
+		} else if("doing".equals(status)) {
+			service.updateDone(num);
+		} else if("done".equals(status)) {
+			service.deleteData(num);
+		}
 		List<TodoListDto> list = service.selectAll(month);
 		return list;
 	}

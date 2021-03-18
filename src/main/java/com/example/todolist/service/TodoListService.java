@@ -22,4 +22,12 @@ public class TodoListService {
 	public int deleteData(int num) {
 		return mapper.deleteData(num);
 	}
+	
+	public int updateDoing(int num) {
+		return mapper.updateDoing(num);
+	}
+	
+	public int updateDone(int num) {
+		return mapper.updateDone(num);
+	}
 }
