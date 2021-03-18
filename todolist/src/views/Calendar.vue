@@ -50,13 +50,16 @@
         <th>month</th>
         <th>content</th>
         <th>status</th>
-        <th>delete</th>
+        <th colspan="2">modify</th>
       </tr>
       <tr v-for="list in todolist" v-bind:key="list.num">
         <td>{{ list.num }}</td>
         <td>{{ list.month }}</td>
         <td>{{ list.content }}</td>
         <td>{{ list.status }}</td>
+        <td>
+          <button @click="update(list.num, list.status)">next</button>
+        </td>
         <td>
           <button @click="deleteNum(list.num, list.month)">delete</button>
         </td>
@@ -81,22 +84,27 @@ export default {
   },
   methods: {
     nowMonth(nowmonth) {
-      console.log(nowmonth)
       this.month = nowmonth
     },
     monthList(monthlist) {
-      console.log(monthlist)
       this.todolist = monthlist
     },
     insert(){
-      // this.$router.push({path:'../components/InsertMonth.vue', month:this.month})
+      this.$router.push({path:'/insert/'+this.month})
+    },
+    update(num, status){
+      axios.get('/update/'+num+'/'+status)
+      .then(res => {
+        this.todolist = res.data
+      })
+      .catch(error => {
+          console.log(error)
+        })
     },
     deleteNum(num, month){
-      console.log(num)
       axios.get('/delete/'+num+'/'+month)
       .then(res => {
         this.todolist = res.data
-        console.log(res)
       })
       .catch(error => {
           console.log(error)

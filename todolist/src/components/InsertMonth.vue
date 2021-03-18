@@ -1,20 +1,18 @@
 <template>
-    <table class="text-center" v-if="todolist.length >= 1">
+    <table class="text-center">
       <tr>
-        <th>num</th>
         <th>month</th>
         <th>content</th>
-        <th>status</th>
         <th colspan="2">modify</th>
       </tr>
-      <tr v-for="list in todolist" v-bind:key="list.num">
+      <tr>
         <td>{{ month }}</td>
-        <td><input id="content" type="text"></td>
+        <td><input v-model="content" type="text"></td>
         <td>
-          <button @click="insert(list.month)">insert</button>
+          <button @click="insert()">insert</button>
         </td>
         <td>
-          <button @click="deleteNum(list.num, list.month)">cancel</button>
+          <button @click="cancel()">cancel</button>
         </td>
       </tr>
     </table>
@@ -25,16 +23,38 @@ import axios from 'axios';
 
 export default {
   name: "InsertMonth",
-  props: {
-    month: Number,
+  computed: {
+    month(){
+      return this.$route.params.month
+    }
   },
   data() {
-    // return{
-    //   todolist:[]
-    // }
+    return{
+      content: ''
+    }
   },
   methods:{
-      
+    cancel(){
+      this.$router.push({path:'/calendar'})
+    },
+    insert(){
+      axios.get('/insertMonth/'+this.month+'/'+this.content)
+      .then(
+        this.$router.push({path:'/calendar/'})
+      )
+      .catch(error => {
+          console.log(error)
+        })
+    }
   }
 }
 </script>
+
+<style>
+tr,
+td,
+th {
+  border: 1px solid #000000;
+  padding: 10px;
+}
+</style>

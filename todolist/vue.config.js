@@ -11,6 +11,16 @@ module.exports = {
                 ws: true,
                 changeOrigin: true
             },
+            '/update': {
+                target: 'http://localhost:8090',
+                ws: true,
+                changeOrigin: true
+            },
+            '/insertMonth': {
+                target: 'http://localhost:8090',
+                ws: true,
+                changeOrigin: true
+            },
         }
     }
 }
