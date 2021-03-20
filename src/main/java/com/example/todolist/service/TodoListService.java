@@ -20,7 +20,8 @@ public class TodoListService {
 	}
 	
 	public int deleteData(int num) {
-		return mapper.deleteData(num);
+		mapper.deleteData(num);
+		return mapper.numUpdate(num);
 	}
 	
 	public int updateDoing(int num) {
