@@ -11,6 +11,7 @@ public interface TodoListMapper {
 	public List<TodoListDto> selectAll(int month);
 	public int insertData(TodoListDto dto);
 	public int deleteData(int num);
+	public int numUpdate(@Param("num")int num);
 	public int updateDoing(@Param("num")int num);
 	public int updateDone(@Param("num")int num);
 }

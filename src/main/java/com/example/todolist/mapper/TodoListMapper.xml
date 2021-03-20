@@ -43,6 +43,12 @@
 		WHERE
 		num=#{num}
 	</delete>
+	
+	<update id="numUpdate" parameterType="int">
+		UPDATE TODOLIST
+		SET num=(num-1)
+		WHERE num>#{num}
+	</update>
 
 	<update id="updateDoing" parameterType="int">
 		UPDATE TODOLIST
