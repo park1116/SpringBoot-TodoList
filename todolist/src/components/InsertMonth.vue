@@ -1,21 +1,25 @@
 <template>
-    <table class="text-center">
-      <tr>
-        <th>month</th>
-        <th>content</th>
-        <th colspan="2">modify</th>
-      </tr>
-      <tr>
-        <td>{{ month }}</td>
-        <td><input v-model="content" type="text"></td>
-        <td>
-          <button @click="insert()">insert</button>
-        </td>
-        <td>
-          <button @click="cancel()">cancel</button>
-        </td>
-      </tr>
+<div class="text-center">
+    <table class="table table-striped">
+      <thead>
+        <th style="width: 10%">month</th>
+        <th style="width: 60%">content</th>
+        <th colspan="2" style="width: 20%">modify</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ month }}</td>
+          <td><input v-model="content" type="text" style="width: 100%"></td>
+          <td>
+            <button class="btn btn-success" @click="insert()">insert</button>
+          </td>
+          <td>
+            <button class="btn btn-danger" @click="cancel()">cancel</button>
+          </td>
+        </tr>
+      </tbody>
     </table>
+</div>
 </template>
 
 <script>
@@ -49,12 +53,3 @@ export default {
   }
 }
 </script>
-
-<style>
-tr,
-td,
-th {
-  border: 1px solid #000000;
-  padding: 10px;
-}
-</style>

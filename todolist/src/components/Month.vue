@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="sendMonth()">{{ name }}</button>
+    <button class="btn btn-outline-dark" @click="sendMonth()">{{ name }}</button>
   </div>
 </template>
 

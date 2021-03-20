@@ -1,71 +1,78 @@
 <template>
   <div class="text-center">
-    <table>
-      <tr>
-        <td>
-          <Month name="January" v-bind:month='1' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
-        </td>
-        <td>
-          <Month name="Febrary" v-bind:month='2' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
-        </td>
-        <td>
-          <Month name="March" v-bind:month='3' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
-        </td>
-        <td>
-          <Month name="April" v-bind:month='4' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <Month name="May" v-bind:month='5' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
-        </td>
-        <td>
-          <Month name="June" v-bind:month='6' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
-        </td>
-        <td>
-          <Month name="July" v-bind:month='7' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
-        </td>
-        <td>
-          <Month name="August" v-bind:month='8' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <Month name="September" v-bind:month='9' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
-        </td>
-        <td>
-          <Month name="October" v-bind:month='10' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
-        </td>
-        <td>
-          <Month name="November" v-bind:month='11' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
-        </td>
-        <td>
-          <Month name="December" v-bind:month='12' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
-        </td>
-      </tr>
+    <table class="table table-bordered">
+      <thead></thead>
+      <tbody>
+        <tr>
+          <td>
+            <Month name="January" v-bind:month='1' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
+          </td>
+          <td>
+            <Month name="Febrary" v-bind:month='2' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
+          </td>
+          <td>
+            <Month name="March" v-bind:month='3' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
+          </td>
+          <td>
+            <Month name="April" v-bind:month='4' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <Month name="May" v-bind:month='5' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
+          </td>
+          <td>
+            <Month name="June" v-bind:month='6' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
+          </td>
+          <td>
+            <Month name="July" v-bind:month='7' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
+          </td>
+          <td>
+            <Month name="August" v-bind:month='8' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <Month name="September" v-bind:month='9' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
+          </td>
+          <td>
+            <Month name="October" v-bind:month='10' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
+          </td>
+          <td>
+            <Month name="November" v-bind:month='11' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
+          </td>
+          <td>
+            <Month name="December" v-bind:month='12' @monthTodoList="monthList" @nowMonth="nowMonth"></Month>
+          </td>
+        </tr>
+      </tbody>
     </table>
-    <table class="text-center" v-if="todolist.length >= 1">
-      <tr>
+    <table class="table table-striped" v-if="todolist.length >= 1">
+      <thead>
         <th>num</th>
         <th>month</th>
         <th>content</th>
         <th>status</th>
         <th colspan="2">modify</th>
-      </tr>
-      <tr v-for="list in todolist" v-bind:key="list.num">
-        <td>{{ list.num }}</td>
-        <td>{{ list.month }}</td>
-        <td>{{ list.content }}</td>
-        <td>{{ list.status }}</td>
-        <td>
-          <button @click="update(list.num, list.month, list.status)">update status</button>
-        </td>
-        <td>
-          <button @click="deleteNum(list.num, list.month)">delete</button>
-        </td>
-      </tr>
+      </thead>
+      <tbody>
+        <tr v-for="list in todolist" v-bind:key="list.num">
+          <td style="width: 10%">{{ list.num }}</td>
+          <td style="width: 10%">{{ list.month }}</td>
+          <td style="width: 60%">{{ list.content }}</td>
+          <td style="width: 20%">{{ list.status }}</td>
+          <td>
+            <button class="btn btn-success" @click="update(list.num, list.month, list.status)">update</button>
+          </td>
+          <td>
+            <button class="btn btn-danger" @click="deleteNum(list.num, list.month)">delete</button>
+          </td>
+        </tr>
+      </tbody>
     </table>
-    <button @click="insert()" v-if="this.month >= 1">insert</button>
+    <div class="d-grid gap-2">
+      <button class="btn btn-primary" @click="insert()" v-if="this.month >= 1">insert</button>
+    </div>
   </div>
 </template>
 
@@ -113,12 +120,3 @@ export default {
   }
 }
 </script>
-
-<style>
-tr,
-td,
-th {
-  border: 1px solid #000000;
-  padding: 10px;
-}
-</style>
